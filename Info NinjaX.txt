@@ -1,0 +1,132 @@
+_Main_:
+
+start()
+//Start Inicia la interfaz del inicio del Juego, posibilidad de salir y un panel de info para saber del juego
+// Hace visible el label oscuro al hacer clic en el botón
+// Hace visible el label oscuro al hacer clic en el botón
+// Hace que el área de contenido sea transparente
+
+niveles()
+//Generamos la interfaz de niveles, y los botones con sus imagenes correspondientes
+
+Game()
+//clase main, simplemente ejecuta el GamePanel
+
+GamePanel()
+//tamaño frame
+// el thread es el responsable del Inicio,actualización,renderizado y gestion de eventos del juego. 
+// esta parte se encarga de hacer que el juego vaya a 60 fps
+//Actualizacion a traves de la clase GameStateManager
+
+
+
+_gamestate_
+
+GameOverState()
+//Generamos un Extend para cuando el personaje halla perdido
+
+
+GamesState()
+// es abstract, no puedo crear objetos en ella . Pero las demas pueden heredar de esta, es buena para la estructura de padre.
+
+GameStateManager()
+//states, son los diferentes niveles, ahora solo hay 1
+// todos estos metodos trabajan segun el LevelXState que haya. X representa el numero de nivel
+
+GameWin()
+//Generamos una interfaz para cuando haya ganado
+
+Level1State()
+//Carga tamaño del jugador y el mapa a traves de su txt
+//Maneja el movimiento del fondo creando el efecto de que el jugador se mueve. Efecto Parallax
+
+Level2State(); Level3State(); Level4State(); Level5State():
+//Carga tamaño del jugador y el mapa a traves de su txt
+//Maneja el movimiento del fondo creando el efecto de que el jugador se mueve. Efecto Parallax
+//Hay que pasarle un valor para que GameOver sepa a cual reiniciar
+
+MenuState()
+// Toda esta clase maneja el menu
+// necesario para que tome la referencia estatica a la clase Music
+//dibuja el String options definido mas arriba conn su fuente , tamaño y posicionamiento en el frame
+//start
+// Entrada de datos para elegir entre las opciones
+
+
+_entities_
+Player()
+//booleanos para manejar los controles y los keylistener
+//posiciones y tamaño
+// velocidad movimiento
+//velocidad salto
+//velocidad caida
+// 0 == derecha, 1== izquierda
+// esta variable va a guardar la ultima flecha de direccion que se presiono
+//para poder realizar el salto hacia X lado
+// lo posiciona en el centro de la pantalla
+// el metodo tick se repite mucho, es la tasa de actualización en el juego. Actualiza los movimientos X cantidad de veces por segundo
+//conversion de variables double a int para poder ser trabajadas
+//colision derecha
+//colision izquierda
+//colision superior
+//colision inferior
+//Colision con los pinches, por ende se activa DEAD
+// Sin xOffset-2 toma lado de abajo y izquierdo del bloque ID 4. Aparentemente no esta tomando en consideración todos los lados del bloque
+//Separe los 4 bloques en 4 fors diferentes para analizar la lógica, una vez que funcione el 4, unifcamos todo en uno :)
+//movimiento hacia la derecha
+//sprite derecha
+//movimiento hacia la izquierda
+//sprite izquierda
+//salto y manejo de velocidad
+//caida y velocidad de la misma
+// la parte anterior tambien verifica que no puedas hacer doble salto.
+//sprite respirar derecha
+//sprite respirar izquierda
+//sprite saltar
+//Dibujo del jugador
+//if(){ LOGICA RESPIRA DERECHA, RESPIRA IZQUIERDA
+//if(){ LOGICA RESPIRA DERECHA, RESPIRA IZQUIERDA
+//Entrada del teclado
+//"Salida" del teclado, desactiva la presion de las teclas
+
+_mapping_
+
+map()
+// El mapa se carga a traves de un txt
+// a traves de un camino hacia el txt, inputstream guarda el contenido del txt y bufferedReader lo lee.
+//aca se guardan las diferentes lineas que va leyendo
+// se establecen la anchura y altura en las dos primeras lineas
+//se establece el tamaño del mapa
+//se rellena teniendo en cuenta si el bloque va a ser dibujable(1) o no (0).
+//Esta parte separa los reglones de los bloques
+
+_objects_
+
+block()
+//El id es el responsable de informar sobre el estado del bloque, si es pisable o no
+// se asigna a todos los bloques visibles la imagen de la clase Images
+//getters and setters. 
+
+MovingBlock()
+//Establece los movimientos de los bloques que se mueven en el juego
+
+_Physics_
+Collision()
+//Devuelve los valores necesario para las colisiones en el resto de class
+
+_resources_
+images()
+//Carga las imagenes segun el tipo de bloque
+// Para logica de respirar derecha/izquierda, hcaer un booleano para tener registrado el ultimo ingreso por teclado, para saber para que lado debe respirar
+//Izquierda
+// saltarDerecha
+// saltarIzquierda
+// Respira
+
+Music()
+//Establece la musica, y la ruta de la misma
+
+
+
+
+
